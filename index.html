@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <title>Hogwarts student list</title>
+</head>
+
+<body>
+    <div class="start-screen">
+        <img src="img/hogwarts-logo.svg" alt="hogwarts logo" id="big-logo">
+        <h2>STUDENT LIST</h2>
+        <img src="img/arrow-down.svg" alt="arrow to next section" id="arrow-down">
+        <div class="container1">
+            <input type="checkbox">
+        </div>
+        <div class="background-circles-container">
+            <div class="background-circles-1">
+                <div class="blurr circle1"></div>
+                <div class="blurr circle3"></div>
+                <div class="blurr circle5"></div>
+                <div class="blurr circle7"></div>
+                <div class="blurr circle9"></div>
+            </div>
+            <div class="background-circles-2">
+                <div class="blurr circle2"></div>
+                <div class="blurr circle4"></div>
+                <div class="blurr circle6"></div>
+                <div class="blurr circle8"></div>
+                <div class="blurr circle10"></div>
+                <div class="blurr circle10"></div>
+            </div>
+        </div>
+    </div>
+    <div id="popup"></div>
+    <div id="remove_aorb" class="modal hide">
+        <div class="dialog">
+            <button class="close">X</button>
+            <p class="prefect-house-allert">House</p>
+            <p>There can only be two prefects pr. house!</p>
+            <p> Do you wish to remove one of the existing prefects?</p>
+            <div class="sidebyside">
+                <button id="removea"><span data-field="prefectsA"></span></button>
+                <button id="removeb"> <span data-field="prefectsB"></span></button>
+            </div>
+        </div>
+    </div>
+
+
+    <section>
+        <div class="student-number"></div>
+        <div class="filter-container">
+
+            <div class="perfect">
+                <p class="filter-label">Prefect</p>
+                <div class="perfect-container">
+                    <img class="icon" src="img/ok.svg" alt="">
+                </div>
+
+            </div>
+            <div class=house>
+                <p class="filter-label">House</p>
+                <div class="house-container">
+                    <img class="icon lion" data-action="filter" data-filter="Gryffindor" src="img/lion.svg">
+                    <img class="icon snake" data-action="filter" data-filter="Slytherin" src="img/snake.svg">
+                    <img class="icon badger" data-action="filter" data-filter="Hufflepuff" src="img/badger.svg">
+                    <img class="icon raven" data-action="filter" data-filter="Ravenclaw" src="img/raven.svg">
+                </div>
+            </div>
+            <div class="expelled">
+                <p class="filter-label">Expelled</p>
+                <div class="expelled-container">
+                    <img class="icon" src="img/denied.svg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="sort">
+            <label for="sort">Sort:</label>
+
+            <select name="sort" id="sort">
+                <option data-action="sort" data-sort-direction="asc" class="sort" value="firstname">First name</option>
+                <option data-action="sort" data-sort-direction="asc" class="sort" value="lastname">Last name</option>
+                <option data-action="sort" data-sort-direction="asc" class="sort" value="house">House</option>
+                <option data-action="sort" data-sort-direction="asc" class="sort" value="prefect">Prefect</option>
+            </select>
+        </div>
+        <div><button class="sort-dir">⇅</button></div>
+    </section>
+
+    <div id="list" class="flip-card">
+        <!--template goes here -->
+    </div>
+
+
+
+    <template id="student">
+        <div class="student-box flip-card-inner house">
+            <button class="flip-card-x">X</button>
+            <div class="student-container flip-card-front">
+                <div class="front-wraper">
+                    <div class="img-placeholder"><img data-field="image" alt="" /></div>
+                    <h3 data-field="fullname"></h3>
+                    <p class="prefect"></p>
+                    <button class="make-prefect">Make Prefect</button>
+                    <button class="make-expelled">Expell student</button>
+                </div>
+            </div>
+            <div class="flip-card-back">
+                <div class="flip-card-info ">
+                    <h3 class="h3-back" data-field="fullname1"></h3>
+                    <p>Nickname:
+                        <!--  <span data-field="house"></span> -->
+                    </p>
+                    <p>Gender: <span data-field="gender"></span></p>
+                    <p>House: <span data-field="house"></span></p>
+                    <p>Blood status:
+                        <!--  <span data-field="house"></span> -->
+                    </p>
+                    <p>Prefect:
+                        <!--  <span data-field="house"></span> -->
+                    </p>
+                    <p>Expelled:
+                        <!--  <span data-field="house"></span> -->
+                    </p>
+                    <p>Inquisitorial:
+                        <!--  <span data-field="house"></span> -->
+                    </p>
+                </div>
+                <button>Prefect</button>
+            </div>
+
+        </div>
+    </template>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

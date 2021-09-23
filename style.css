@@ -1,0 +1,414 @@
+body {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(0deg, rgb(0, 0, 0) 80%, black 100%);
+  color: #d7d7d7;
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
+.background-circles-container {
+  position: fixed;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* slider */
+.container1 {
+  position: absolute;
+  top: 3em;
+  right: 7em;
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  -webkit-appearance: none;
+  height: 2.5em;
+  width: 5em;
+  border: 5px solid rgb(0, 0, 0);
+  box-shadow: -0.1em -0.1em 0.2em rgba(92, 92, 92, 0.75), 0.1em 0.1em 0.2em rgba(54, 54, 54, 0.75);
+  cursor: pointer;
+  left: 0.1px;
+  border-radius: 40px;
+}
+input[type="checkbox"]:before,
+input[type="checkbox"]:after {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  transition: 0.3s;
+}
+input[type="checkbox"]:before {
+  height: 1.8em;
+  width: 1.8em;
+  background-color: #080808;
+  box-shadow: -0.1em -0.1em 0.2em rgba(73, 73, 73, 0.75), 0.1em 0.1em 0.2em rgba(59, 59, 59, 0.75);
+  border-radius: 50%;
+  left: 2.5em;
+}
+
+input[type="checkbox"]:checked:before {
+  left: 0em;
+}
+
+.background-circles-1 > * {
+  position: fixed;
+  animation: 26s -27s move-1 infinite alternate;
+}
+.background-circles-2 > * {
+  animation: 20s -27s move-2 infinite alternate;
+}
+
+@keyframes move-1 {
+  to {
+    transform: rotate(360deg) scale(0.5) translateX(-4vw);
+  }
+}
+@keyframes move-2 {
+  to {
+    transform: rotate(360deg) scale(1.5) translateX(5vw);
+  }
+}
+
+.start-screen {
+  height: 100vh;
+}
+
+.blurr {
+  position: absolute;
+  border-radius: 100%;
+  filter: blur(2em);
+  z-index: 1;
+}
+
+.glass {
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4em);
+}
+
+.circle1 {
+  background-color: #2c2c2c;
+  height: 22vw;
+  width: 22vw;
+  top: 0vw;
+  left: 6vw;
+}
+
+.circle2 {
+  background-color: #181818;
+  height: 22vw;
+  width: 22vw;
+  top: 30vw;
+  left: -10vw;
+}
+.circle3 {
+  background-color: #181818;
+  height: 10vw;
+  width: 10vw;
+  top: 26vw;
+  left: 24vw;
+}
+.circle4 {
+  background-color: #2c2c2c;
+  height: 16vw;
+  width: 16vw;
+  top: 5vw;
+  right: 20vw;
+}
+
+.circle5 {
+  background-color: #2c2c2c;
+  height: 24vw;
+  width: 24vw;
+  top: 20vw;
+  right: 80vw;
+}
+.circle6 {
+  background-color: #313131;
+  height: 10vw;
+  width: 10vw;
+  top: 36vw;
+  right: 20vw;
+}
+.circle7 {
+  background-color: #383838;
+  height: 10vw;
+  width: 10vw;
+  top: 27vw;
+  left: 30vw;
+}
+.circle8 {
+  background-color: #181818;
+  height: 26vw;
+  width: 26vw;
+  top: 30vw;
+  right: 40vw;
+}
+.circle9 {
+  background-color: #1b1b1b;
+  height: 40vw;
+  width: 40vw;
+  top: -20vw;
+  right: 20vw;
+}
+
+section {
+  /*   box-shadow: 0.2rem 0.2rem 0.8rem rgb(0, 0, 0), -0.2rem -0.2rem 0.8rem rgb(19, 19, 19);
+  background-color: rgba(255, 255, 255, 0.123); */
+  /* box-shadow: inset 0px 0px 4px rgba(255, 255, 255, 0.315); */
+  padding: 0.5em;
+  margin-bottom: 2em;
+  border-radius: 2em;
+  z-index: 99;
+  /*   background-color: rgba(255, 255, 255, 0.123);
+  backdrop-filter: blur(4em); */
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  /*   box-shadow: 0.2rem 0.2rem 0.6rem rgb(46, 46, 46), -0.1rem -0.1rem 0.5rem rgb(51, 51, 51);
+  background-color: rgb(0, 0, 0);
+  padding: 1.5em;
+  border-radius: 2em; */
+  margin: 1em;
+}
+
+.filter-label {
+  color: #b8b8b8;
+  font-size: 0.8em;
+  margin-bottom: 2em;
+}
+
+.house,
+.perfect,
+.expelled {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-bottom: 1em;
+  padding: 2vw;
+}
+
+.house-container > *,
+.perfect-container > *,
+.expelled-container > * {
+  margin-left: 1vw;
+  margin-right: 1vw;
+  height: 2em;
+  width: 2em;
+}
+
+/* .icon {
+  box-shadow: 0.2rem 0.2rem 0.6rem rgb(46, 46, 46), -0.1rem -0.1rem 0.5rem rgb(51, 51, 51);
+  background-color: rgb(0, 0, 0);
+  padding: 1.5em;
+  border-radius: 100%;
+  margin: 1em;
+}
+
+.icon:hover {
+  color: white;
+}
+
+.icon:active {
+  box-shadow: inset 0.2rem 0.2rem 0.6rem rgb(46, 46, 46), inset -0.1rem -0.1rem 0.5rem rgb(51, 51, 51);
+  background-color: rgb(10, 10, 10);
+} */
+
+#big-logo {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 20%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  width: 50%;
+  z-index: 99;
+}
+
+#arrow-down {
+  height: 1.4em;
+  width: 1.4em;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 84%;
+}
+
+h2,
+h3,
+p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+}
+
+h2 {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 55%;
+  text-align: center;
+  font-size: 1em;
+  z-index: 99;
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 0em;
+  font-size: 1em;
+}
+
+.h3-back {
+  padding-bottom: 1em;
+  border-bottom: 1px #d7d7d7 solid;
+}
+
+p {
+  font-size: 0.8em;
+}
+
+#list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 6vw;
+  background-color: #161616;
+  border-radius: 2em;
+  padding: 2em;
+  box-shadow: -0.2em -0.2em 0.4em rgba(0, 0, 0, 0.75), 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.75);
+}
+
+#list > * {
+  box-shadow: -0.2em -0.2em 0.4em rgba(0, 0, 0, 0.75), 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.75);
+}
+.student-number {
+  color: white;
+}
+
+.student-box {
+  background-color: rgba(0, 0, 0, 0.459);
+  border-radius: 3em;
+  padding: 3.6em;
+}
+
+.house-Gryffindor {
+  border: inset 1px red;
+}
+
+.house-Slytherin {
+  border: inset 1px green;
+}
+
+.house-Hufflepuff {
+  border: inset 1px yellow;
+}
+
+.house-Ravenclaw {
+  border: inset 1px darkblue;
+}
+
+.img-placeholder {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5em;
+  margin-bottom: 2em;
+  height: 6em;
+  width: 6em;
+  border-radius: 100%;
+  background-color: #d7d7d7;
+}
+.img-placeholder img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 5em;
+  width: 5em;
+  border-radius: 100%;
+  filter: grayscale(0.7);
+  background-image: url(https://grainy-gradients.vercel.app/noise.svg);
+}
+
+/* Prefects popup warning */
+
+.hide {
+  visibility: hidden;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+.close {
+  background-color: transparent;
+  border: none;
+}
+.sidebyside {
+  text-align: center;
+}
+
+.dialog #removea,
+.dialog #removeb {
+  text-align: center;
+  border: 1px solid #d7d7d7;
+  background: black;
+  color: white;
+  padding: 1em;
+  border-radius: 0.5em;
+  font-weight: 300;
+  margin: 1em;
+}
+
+.flip-card {
+  background-color: transparent;
+  perspective: 400em;
+}
+
+.flip-card-inner {
+  position: relative;
+  transition: transform 0.3s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flip-card-inner {
+  background-color: rgb(0, 0, 0);
+  transform: rotateX(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  background-color: transparent;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.flip-card-back {
+  color: #d7d7d7;
+  transform: rotateX(180deg);
+}
