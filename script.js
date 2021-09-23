@@ -5,6 +5,7 @@ const allStudents = [];
 const prefectList = [];
 
 let filterBy = "all";
+let bloodStatusList;
 
 document.querySelector(".student-number").textContent = 34;
 const settings = {
@@ -35,9 +36,12 @@ let Student = {
 };
 
 function start() {
+  fetch("https://petlatkea.dk/2021/hogwarts/families.json")
+    .then((response) => response.json())
+    .then((data) => (bloodStatusList = data));
   fetch("https://petlatkea.dk/2021/hogwarts/students.json")
     .then((response) => response.json())
-    .then((data) => prepareObjects(data));
+    .then((jsonData) => prepareObjects(jsonData));
   registerButtons();
 }
 
@@ -53,6 +57,7 @@ function prepareObjects(jsonData) {
     student.house = getHouse(object.house);
     student.gender = object.gender;
     student.fullname = student.firstname + " " + student.lastname;
+    student.bloodstatus = bloodStatus(student.lastname);
     allStudents.push(student);
   });
   console.table(allStudents);
@@ -128,6 +133,22 @@ function getHouse(house) {
   return cleanData;
 }
 
+function bloodStatus(lastName) {
+  let bloodType;
+  console.log(bloodStatusList);
+
+  if (lastName) {
+    bloodType = "muggle";
+    if (bloodStatusList.pure.includes(lastName)) {
+      bloodType = "pure";
+    }
+    if (bloodStatusList.half.includes(lastName)) {
+      bloodType = "half";
+    }
+  }
+  return bloodType;
+}
+
 function cleanResult(name) {
   const noSpaces = name.trim(name);
   const initial = noSpaces.substring(0, 1).toUpperCase() + noSpaces.substring(1).toLowerCase();
@@ -139,7 +160,7 @@ function displayList(aList) {
   document.querySelector("#list").innerHTML = "";
   // build list
   aList.forEach(displayStudent);
-  /*  clickCard();  */
+  clickCard();
 }
 
 function displayStudent(student) {
@@ -156,6 +177,7 @@ function displayStudent(student) {
   clone.querySelector(".make-prefect").addEventListener("click", makePrefect(student));
   clone.querySelector(".make-expelled").addEventListener("click", makeExpelled(student));
   clone.querySelector(".student-box").classList.add("house-" + student.house);
+  clone.querySelector(".bloodstatus").textContent = "Bloodstatus: " + student.bloodstatus;
 
   // append clone to list
   document.querySelector("#list").appendChild(clone);
@@ -168,7 +190,7 @@ const makeExpelled = (student) => {
       student.expelled === false;
       canNotExpell();
     } else if (student.expelled === true) {
-      /*      student.expelled = false; */
+      /*  student.expelled = false; */
       console.log("the student will not be expelled");
     } else if (student.expelled === false) {
       student.expelled = true;
@@ -259,15 +281,16 @@ function closeDialog() {
   document.querySelector("#remove_aorb #removeb").removeEventListener("click", removeB);
 }
 
-/*  function clickCard() {
+function clickCard() {
   document.querySelectorAll(".flip-card-x").forEach((el) =>
     el.addEventListener("click", function () {
-      this.classList.toggle("flip-card");
-      this.lastElementChild.firstElementChild.classList.toggle("hidden");
-      this.firstElementChild.firstElementChild.classList.toggle("hidden");
+      this.parentElement.classList.toggle("flip-card");
+      console.log("filp card toggeled!");
+      this.nextElementSibling.classList.toggle("hidden");
+      this.lastSibling.classList.toggle("hidden");
     })
   );
-}  */
+}
 
 function registerButtons() {
   document.querySelectorAll(".icon").forEach((filter) => filter.addEventListener("click", selectFilter));
@@ -298,6 +321,8 @@ function filterList(filteredList) {
     filteredList = allStudents.filter(isRavenclaw);
   } else if (settings.filterBy === "expelled") {
     filteredList = allStudents.filter(isExpelled);
+  } else if (settings.filterBy === "prefect") {
+    filteredList = allStudents.filter(isPrefect);
   }
   return filteredList;
 }
@@ -316,6 +341,9 @@ function isRavenclaw(student) {
 }
 function isExpelled(student) {
   return student.expelled === true;
+}
+function isPrefect(student) {
+  return student.prefect === true;
 }
 
 function selectSort(event) {

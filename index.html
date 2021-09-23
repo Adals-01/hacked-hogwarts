@@ -60,7 +60,7 @@
             <div class="perfect">
                 <p class="filter-label">Prefect</p>
                 <div class="perfect-container">
-                    <img class="icon" src="img/ok.svg" alt="">
+                    <img class="icon" data-action="filter" data-filter="prefect" src="img/ok.svg" alt="">
                 </div>
 
             </div>
@@ -76,7 +76,7 @@
             <div class="expelled">
                 <p class="filter-label">Expelled</p>
                 <div class="expelled-container">
-                    <img class="icon" src="img/denied.svg" alt="">
+                    <img class="icon" data-action="filter" data-filter="expelled" src="img/denied.svg" alt="">
                 </div>
             </div>
         </div>
@@ -100,15 +100,16 @@
 
 
     <template id="student">
-        <div class="student-box flip-card-inner house">
-            <button class="flip-card-x">X</button>
+        <div class="student-box flip-card-inner ">
+            <button class="flip-card-x">›</button>
             <div class="student-container flip-card-front">
                 <div class="front-wraper">
                     <div class="img-placeholder"><img data-field="image" alt="" /></div>
                     <h3 data-field="fullname"></h3>
-                    <p class="prefect"></p>
-                    <button class="make-prefect">Make Prefect</button>
-                    <button class="make-expelled">Expell student</button>
+                    <!--  <p class="prefect"></p>
+                    <p class="bloodstatus">Bloodstatus: -->
+                    <!--  <span data-field="house"></span> -->
+                    </p>
                 </div>
             </div>
             <div class="flip-card-back">
@@ -119,20 +120,18 @@
                     </p>
                     <p>Gender: <span data-field="gender"></span></p>
                     <p>House: <span data-field="house"></span></p>
-                    <p>Blood status:
-                        <!--  <span data-field="house"></span> -->
-                    </p>
-                    <p>Prefect:
-                        <!--  <span data-field="house"></span> -->
-                    </p>
+                    <p class="prefect">Prefect:</p>
+                    <p class="bloodstatus">Bloodstatus:
                     <p>Expelled:
                         <!--  <span data-field="house"></span> -->
                     </p>
                     <p>Inquisitorial:
                         <!--  <span data-field="house"></span> -->
                     </p>
+                    <button class="make-prefect">Make Prefect</button>
+                    <button class="make-expelled">Expell student</button>
+
                 </div>
-                <button>Prefect</button>
             </div>
 
         </div>

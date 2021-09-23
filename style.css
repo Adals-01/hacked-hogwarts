@@ -14,6 +14,11 @@ body {
 }
 
 /* slider */
+.hack-icon {
+  height: 1em;
+  width: auto;
+}
+
 .container1 {
   position: absolute;
   top: 3em;
@@ -23,10 +28,14 @@ body {
 }
 
 input[type="checkbox"] {
+  background-image: url("img/hack.svg");
+  background-repeat: no-repeat;
+  mix-blend-mode: difference;
   position: absolute;
   -webkit-appearance: none;
   height: 2.5em;
   width: 5em;
+  background-color: rgb(31, 31, 31);
   border: 5px solid rgb(0, 0, 0);
   box-shadow: -0.1em -0.1em 0.2em rgba(92, 92, 92, 0.75), 0.1em 0.1em 0.2em rgba(54, 54, 54, 0.75);
   cursor: pointer;
@@ -302,26 +311,26 @@ p {
 }
 
 .house-Gryffindor {
-  border: inset 1px red;
+  border: inset 2px rgb(48, 26, 26);
 }
 
 .house-Slytherin {
-  border: inset 1px green;
+  border: inset 2px rgb(27, 46, 27);
 }
 
 .house-Hufflepuff {
-  border: inset 1px yellow;
+  border: inset 2px rgb(49, 49, 30);
 }
 
 .house-Ravenclaw {
-  border: inset 1px darkblue;
+  border: inset 2px rgb(25, 25, 37);
 }
 
 .img-placeholder {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 0.5em;
+  margin-top: 1.4em;
   margin-bottom: 2em;
   height: 6em;
   width: 6em;
@@ -352,7 +361,7 @@ p {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.76);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -379,8 +388,27 @@ p {
 }
 
 .flip-card {
+  position: relative;
   background-color: transparent;
   perspective: 400em;
+}
+
+.flip-card-x {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0.4em;
+  color: #d7d7d7;
+  font-size: 2em;
+  position: absolute;
+  top: 0em;
+  right: 0.3em;
+  transition: transform 0.1s;
+}
+
+.flip-card-x:hover {
+  color: white;
+  filter: drop-shadow(0px 0px 4px rgb(255, 255, 255));
 }
 
 .flip-card-inner {
