@@ -28,7 +28,6 @@ body {
 }
 
 input[type="checkbox"] {
-  background-image: url("img/hack.svg");
   background-repeat: no-repeat;
   mix-blend-mode: difference;
   position: absolute;
@@ -52,9 +51,10 @@ input[type="checkbox"]:after {
   transition: 0.3s;
 }
 input[type="checkbox"]:before {
+  background-image: url("img/hack.svg");
   height: 1.8em;
   width: 1.8em;
-  background-color: #080808;
+  background-color: #1d1d1d;
   box-shadow: -0.1em -0.1em 0.2em rgba(73, 73, 73, 0.75), 0.1em 0.1em 0.2em rgba(59, 59, 59, 0.75);
   border-radius: 50%;
   left: 2.5em;
@@ -178,6 +178,7 @@ section {
 }
 
 .filter-container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -185,9 +186,63 @@ section {
   background-color: rgb(0, 0, 0);
   padding: 1.5em;
   border-radius: 2em; */
-  margin: 1em;
+  /*   margin: 1em; */
 }
 
+/*  .filter-outline {
+  position: absolute;
+  width: 100%;
+   background-color: white; 
+  border-bottom: 100px solid white;
+    border-left: 8% solid transparent;
+  border-right: 8% solid transparent; 
+  clip-path: polygon(8% 0%, 92% 0%, 100% 100%, 0% 100%);
+}  */
+
+/* .filter-outline:after {
+  content: "";
+  clip-path: inset(0% 94% 0% 0%);
+  background: #fff;
+  display: block;
+  height: 100%;
+} */
+/* .filter-mask {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  width: 99%;
+  height: auto;
+  border-bottom: 96px solid rgb(0, 0, 0);
+  border-left: 8% solid transparent;
+  border-right: 8% solid transparent;
+  clip-path: revert;
+  clip-path: polygon(8% 0%, 92% 0%, 100% 100%, 0% 100%);
+}  */
+
+.pxsbx2 {
+  width: 200px;
+  height: 120px;
+  text-align: center;
+  line-height: 120px;
+  position: relative;
+  font-size: 18px;
+  color: rgb(167, 30, 30);
+}
+
+.pxsbx2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: 200px;
+  height: 120px;
+  background: #317ef3;
+  transform: skewX(30deg);
+}
 .filter-label {
   color: #b8b8b8;
   font-size: 0.8em;
@@ -229,6 +284,10 @@ section {
   box-shadow: inset 0.2rem 0.2rem 0.6rem rgb(46, 46, 46), inset -0.1rem -0.1rem 0.5rem rgb(51, 51, 51);
   background-color: rgb(10, 10, 10);
 } */
+.snake {
+  height: 2.6em;
+  width: auto;
+}
 
 #big-logo {
   position: absolute;

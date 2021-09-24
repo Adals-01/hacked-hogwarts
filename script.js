@@ -3,6 +3,7 @@
 window.addEventListener("DOMContentLoaded", start);
 const allStudents = [];
 const prefectList = [];
+let isHacked = false;
 
 let filterBy = "all";
 let bloodStatusList;
@@ -14,11 +15,12 @@ const settings = {
   sortDir: "asc",
 };
 
-function btn_click() {
+/* function btn_click() {
   isToggeled = !isToggeled;
   console.log("click", isToggeled);
   view(isToggeled);
-}
+  hackedButton();
+} */
 
 // Prototype
 let Student = {
@@ -188,7 +190,6 @@ const makeExpelled = (student) => {
   return () => {
     if (student.firstName === "Anna") {
       student.expelled === false;
-      canNotExpell();
     } else if (student.expelled === true) {
       /*  student.expelled = false; */
       console.log("the student will not be expelled");
@@ -208,7 +209,6 @@ const makePrefect = (student) => {
       prefectList.push(student);
     }
     // Max 2 prefects pr house
-    /*    const findPrefects = prefectList.filter(isSlytherin); */
     const arrHouse = [isSlytherin, isGryffindor, isHufflepuff, isRavenclaw];
     arrHouse.forEach(function (arrHouse) {
       const findPrefects = prefectList.filter(arrHouse);
@@ -297,6 +297,56 @@ function registerButtons() {
   console.log("registerButtons");
   document.querySelectorAll(".sort").forEach((value) => value.addEventListener("change", selectSort));
   document.querySelector(".sort-dir").addEventListener("click", setDirection);
+  document.querySelector("input[name=checkbox]").addEventListener("change", hackTheSystem);
+}
+
+function hackTheSystem() {
+  if (this.checked) {
+    console.log("is hacked");
+    randomizeBlood();
+    addMe();
+    buildList();
+  }
+}
+
+function addMe() {
+  console.log("I am added");
+
+  let student = {
+    fullname: "Anna Dalsgaard",
+    firstname: "Anna",
+    middlename: "",
+    nickname: "",
+    lastname: "Dalsgaard",
+    image: "patil_padma.png",
+    house: "Slytherin",
+    gender: "girl",
+    bloodstatus: "pure",
+    prefects: false,
+    expelled: false,
+    inquisitorialsquad: false,
+  };
+
+  allStudents.push(student);
+  return allStudents;
+}
+
+function randomizeBlood() {
+  allStudents.forEach((student) => {
+    //randomize purebloods
+    if (student.bloodstatus === "pure") {
+      student.bloodstatus = Math.floor(Math.random() * 2);
+
+      if (student.bloodstatus == 0) {
+        student.bloodstatus = "half";
+      } else {
+        student.bloodstatus = "pure";
+      }
+      //make muggles pureblood
+    } else if (student.bloodstatus === "muggle" || student === "half") {
+      student.bloodstatus = "pure";
+    }
+  });
 }
 
 function selectFilter(event) {
@@ -408,14 +458,3 @@ function buildList() {
   console.log(sortedList);
   displayList(sortedList);
 }
-
-/* function setPrefect() {} */
-
-/* function search() {
-  showStudentList(
-    studentArray.filter(elm(=Z {
-      return elm.target 
-    
-      
-    )
-  )} */
