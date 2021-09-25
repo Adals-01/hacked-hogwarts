@@ -137,7 +137,7 @@ function getHouse(house) {
 
 function bloodStatus(lastName) {
   let bloodType;
-  console.log(bloodStatusList);
+  /*   console.log(bloodStatusList); */
 
   if (lastName) {
     bloodType = "muggle";
@@ -194,11 +194,9 @@ const makeSquad = (student) => {
     } else if (student.squad === false) {
       /*   clone.querySelector(".squad img").classList.add("false"); */
     }
-
-    /*   klon.querySelector("[data-field=squad]").addEventListener("click", clickSquad); */
     if (hackTheSystem) {
       student.squad = true;
-      /*      limitedSquad(student); */
+      limitedSquad(student);
     } else if (student.house === "Slytherin" || student.blood === "Pure-blood") {
       if (student.squad) {
         student.squad = false;
@@ -212,6 +210,17 @@ const makeSquad = (student) => {
     buildList();
   };
 };
+
+//mess up
+function limitedSquad(student) {
+  console.log("limitedSquad");
+  if (student.squad === true) {
+    setTimeout(() => {
+      student.squad = false;
+      buildList();
+    }, 3000);
+  }
+}
 
 //Expell student
 const makeExpelled = (student) => {
@@ -326,6 +335,7 @@ function registerButtons() {
   document.querySelectorAll(".sort").forEach((value) => value.addEventListener("change", selectSort));
   document.querySelector(".sort-dir").addEventListener("click", setDirection);
   document.querySelector("input[name=checkbox]").addEventListener("change", hackTheSystem);
+  document.querySelector("#search").addEventListener("input", searchStudent);
 }
 
 function hackTheSystem() {
@@ -377,6 +387,14 @@ function randomizeBlood() {
   });
 }
 
+function searchStudent(input) {
+  const searchString = input.target.value.toLowerCase();
+  const searchedStudents = allStudents.filter((student) => {
+    return student.firstname.toLowerCase().includes(searchString) || student.lastname.toLowerCase().includes(searchString) || student.house.toLowerCase().includes(searchString);
+  });
+  displayList(searchedStudents);
+}
+
 function selectFilter(event) {
   const filter = event.target.dataset.filter;
   console.log(`user selected filter ${filter}`);
@@ -401,6 +419,8 @@ function filterList(filteredList) {
     filteredList = allStudents.filter(isExpelled);
   } else if (settings.filterBy === "prefect") {
     filteredList = allStudents.filter(isPrefect);
+  } else if (settings.filterBy === "squad") {
+    filteredList = allStudents.filter(isSquad);
   }
   return filteredList;
 }
@@ -422,6 +442,9 @@ function isExpelled(student) {
 }
 function isPrefect(student) {
   return student.prefect === true;
+}
+function isSquad(student) {
+  return student.squad === true;
 }
 
 function selectSort(event) {

@@ -27,6 +27,12 @@ body {
   align-items: center;
 }
 
+#site-search {
+  border-radius: 2em;
+  padding: 0.8em;
+  border: none;
+}
+
 input[type="checkbox"] {
   background-repeat: no-repeat;
   mix-blend-mode: difference;
