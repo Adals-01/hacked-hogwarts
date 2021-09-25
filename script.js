@@ -34,7 +34,7 @@ let Student = {
   bloodstatus: "",
   prefect: false,
   expelled: false,
-  inquisitorialsquad: false,
+  squad: false,
 };
 
 function start() {
@@ -178,12 +178,40 @@ function displayStudent(student) {
   clone.querySelector(".prefect").textContent = student.prefect;
   clone.querySelector(".make-prefect").addEventListener("click", makePrefect(student));
   clone.querySelector(".make-expelled").addEventListener("click", makeExpelled(student));
+  clone.querySelector(".make-squad").addEventListener("click", makeSquad(student));
   clone.querySelector(".student-box").classList.add("house-" + student.house);
   clone.querySelector(".bloodstatus").textContent = "Bloodstatus: " + student.bloodstatus;
 
   // append clone to list
   document.querySelector("#list").appendChild(clone);
 }
+
+// Make inquisitorial squad
+const makeSquad = (student) => {
+  return () => {
+    if (student.squad === true) {
+      /*   clone.querySelector(".squad img").classList.remove("false"); */
+    } else if (student.squad === false) {
+      /*   clone.querySelector(".squad img").classList.add("false"); */
+    }
+
+    /*   klon.querySelector("[data-field=squad]").addEventListener("click", clickSquad); */
+    if (hackTheSystem) {
+      student.squad = true;
+      /*      limitedSquad(student); */
+    } else if (student.house === "Slytherin" || student.blood === "Pure-blood") {
+      if (student.squad) {
+        student.squad = false;
+      } else {
+        student.squad = true;
+      }
+    } else {
+      canNotBeSquad(student);
+    }
+    console.log(student.squad);
+    buildList();
+  };
+};
 
 //Expell student
 const makeExpelled = (student) => {
@@ -287,7 +315,7 @@ function clickCard() {
       this.parentElement.classList.toggle("flip-card");
       console.log("filp card toggeled!");
       this.nextElementSibling.classList.toggle("hidden");
-      this.lastSibling.classList.toggle("hidden");
+      this.nextElementSibling.nextElementSibling.classList.toggle("hidden");
     })
   );
 }
@@ -342,7 +370,7 @@ function randomizeBlood() {
       } else {
         student.bloodstatus = "pure";
       }
-      //make muggles pureblood
+      //make muggles pure
     } else if (student.bloodstatus === "muggle" || student === "half") {
       student.bloodstatus = "pure";
     }
