@@ -427,6 +427,15 @@ p {
   visibility: hidden;
 }
 
+#popup {
+}
+
+.card-btn-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 1em;
+}
+
 .make-prefect,
 .make-expelled,
 .make-squad {
@@ -437,9 +446,8 @@ p {
 .make-prefect img,
 .make-expelled img,
 .make-squad img {
-  margin: 1em;
-  height: 2.2em;
-  width: 2.2em;
+  height: 2em;
+  width: 2em;
 }
 
 .faded {
