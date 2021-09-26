@@ -17,7 +17,8 @@
     <div class="start-screen">
         <img src="img/hogwarts-logo.svg" alt="hogwarts logo" id="big-logo">
         <h2>STUDENT LIST</h2>
-        <img src="img/arrow-down.svg" alt="arrow to next section" id="arrow-down">
+        <button id="btn-scroll" onclick="scrolldiv()"><img id="arrow-down" src=" img/arrow-down.svg"
+                alt="arrow to next section"></button>
         <div class="container1">
             <input type="checkbox" name="checkbox" />
         </div>
@@ -90,7 +91,7 @@
                 <div class="squad">
                     <!--   <p class="filter-label">Squad</p> -->
                     <div class="perfect-container">
-                        <img class="icon" data-action="filter" data-filter="squad" src="img/ok.svg" alt="">
+                        <img class="icon" data-action="filter" data-filter="squad" src="img/squad.svg" alt="">
                     </div>
 
                 </div>
@@ -122,7 +123,7 @@
 
 
     <template id="student">
-        <div class="student-box flip-card-inner ">
+        <div class="student-box flip-card-inner">
             <button class="flip-card-x">›</button>
             <div class="student-container flip-card-front">
                 <div class="front-wraper">
@@ -137,8 +138,8 @@
             <div class="flip-card-back">
                 <div class="flip-card-info ">
                     <h3 class="h3-back" data-field="fullname1"></h3>
-                    <p>Nickname:
-                        <!--  <span data-field="house"></span> -->
+                    <p class="nickname">Nickname:
+                        <span data-field="nickname"></span>
                     </p>
                     <p>Gender: <span data-field="gender"></span></p>
                     <p>House: <span data-field="house"></span></p>
@@ -150,9 +151,9 @@
                     <p>Inquisitorial:
                         <!--  <span data-field="house"></span> -->
                     </p>
-                    <button class="make-prefect">Make Prefect</button>
-                    <button class="make-expelled">Expell student</button>
-                    <button class="make-squad">Make squad</button>
+                    <button class="make-prefect faded"><img src="img/ok.svg" alt=""></button>
+                    <button class="make-squad faded"><img src="img/squad.svg" alt=""></button>
+                    <button class="make-expelled faded"><img src="img/denied.svg" alt=""></button>
 
                 </div>
             </div>

@@ -161,6 +161,15 @@ function cleanResult(name) {
 function displayList(aList) {
   document.querySelector("#list").innerHTML = "";
   // build list
+
+  document.querySelector("#list").classList.remove("alert-style");
+  document.querySelector("#list").style.display = "grid";
+  if (aList.length === 0 || aList.length === null || aList.length === "undefined") {
+    console.log("current list is 0");
+    document.querySelector("#list").innerHTML = `There are no students in this category`;
+    document.querySelector("#list").classList.add("alert-style");
+    document.querySelector("#list").style.display = "block";
+  }
   aList.forEach(displayStudent);
   clickCard();
 }
@@ -173,15 +182,23 @@ function displayStudent(student) {
   clone.querySelector("[data-field=fullname]").textContent = student.fullname;
   clone.querySelector("[data-field=fullname1]").textContent = student.fullname;
   clone.querySelector("[data-field=gender]").textContent = student.gender;
+  clone.querySelector("[data-field=nickname]").textContent = student.nickname;
   clone.querySelector("[data-field=house]").textContent = student.house;
   clone.querySelector("[data-field=image]").src = "student-img/" + student.image;
-  clone.querySelector(".prefect").textContent = student.prefect;
+  clone.querySelector(".prefect").src = "img/" + student.prefect;
   clone.querySelector(".make-prefect").addEventListener("click", makePrefect(student));
   clone.querySelector(".make-expelled").addEventListener("click", makeExpelled(student));
   clone.querySelector(".make-squad").addEventListener("click", makeSquad(student));
   clone.querySelector(".student-box").classList.add("house-" + student.house);
   clone.querySelector(".bloodstatus").textContent = "Bloodstatus: " + student.bloodstatus;
-
+  if (student.expelled === true) {
+    clone.querySelector(".make-expelled").classList.add("hide");
+    clone.querySelector(".make-prefect").classList.add("hide");
+    clone.querySelector(".make-squad").classList.add("hide");
+  }
+  if (student.nickname === null || student.nickname === "undefined" || student.nickname === "") {
+    clone.querySelector(".nickname").classList.add("hide");
+  }
   // append clone to list
   document.querySelector("#list").appendChild(clone);
 }
@@ -228,7 +245,6 @@ const makeExpelled = (student) => {
     if (student.firstName === "Anna") {
       student.expelled === false;
     } else if (student.expelled === true) {
-      /*  student.expelled = false; */
       console.log("the student will not be expelled");
     } else if (student.expelled === false) {
       student.expelled = true;
@@ -262,6 +278,7 @@ function limitPrefect(findPrefects) {
     console.log(prefectCount);
     removeAorB(findPrefects[0], findPrefects[1]);
   }
+
   buildList();
 }
 
@@ -336,6 +353,11 @@ function registerButtons() {
   document.querySelector(".sort-dir").addEventListener("click", sortDirection);
   document.querySelector("input[name=checkbox]").addEventListener("change", hackTheSystem);
   document.querySelector("#search").addEventListener("input", searchStudent);
+}
+
+function scrolldiv() {
+  var elem = document.querySelector("section");
+  elem.scrollIntoView({ behavior: "smooth" });
 }
 
 function hackTheSystem() {
@@ -498,6 +520,5 @@ function buildList() {
   const currentList = filterList(allStudents.filter((student) => student.expelled === false));
   const sortedList = sortList(currentList);
   document.querySelector(".student-number").textContent = currentList.length;
-  console.log(sortedList);
   displayList(sortedList);
 }

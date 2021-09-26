@@ -67,6 +67,7 @@ body {
 }
 
 .student-number {
+  font-size: 1.6em;
   color: #d7d7d7;
   text-align: center;
   padding-bottom: 1em;
@@ -90,9 +91,8 @@ input[type="checkbox"] {
   -webkit-appearance: none;
   height: 2.5em;
   width: 5em;
-  background-color: rgb(31, 31, 31);
-  border: 5px solid rgb(0, 0, 0);
-  box-shadow: -0.1em -0.1em 0.2em rgba(92, 92, 92, 0.75), 0.1em 0.1em 0.2em rgba(54, 54, 54, 0.75);
+  background-color: black;
+  border: 0.1em solid #d7d7d7;
   cursor: pointer;
   left: 0.1px;
   border-radius: 40px;
@@ -110,14 +110,14 @@ input[type="checkbox"]:before {
   background-image: url("img/hack.svg");
   height: 1.8em;
   width: 1.8em;
-  background-color: #1d1d1d;
-  box-shadow: -0.1em -0.1em 0.2em rgba(73, 73, 73, 0.75), 0.1em 0.1em 0.2em rgba(59, 59, 59, 0.75);
+  background-color: black;
+  border: 0.1em solid #d7d7d7;
   border-radius: 50%;
-  left: 2.5em;
+  left: 2.6em;
 }
 
 input[type="checkbox"]:checked:before {
-  left: 0em;
+  left: 0.2em;
 }
 
 .background-circles-1 > * {
@@ -309,8 +309,11 @@ section {
   z-index: 99;
 }
 
+#btn-scroll {
+}
+
 #arrow-down {
-  height: 1.4em;
+  height: 2em;
   width: 1.4em;
   position: absolute;
   margin-left: auto;
@@ -355,6 +358,7 @@ p {
 }
 
 #list {
+  color: #d7d7d7;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   /*   grid-gap: 6vw;
@@ -421,6 +425,25 @@ p {
 
 .hide {
   visibility: hidden;
+}
+
+.make-prefect,
+.make-expelled,
+.make-squad {
+  border: none;
+  background-color: black;
+}
+
+.make-prefect img,
+.make-expelled img,
+.make-squad img {
+  margin: 1em;
+  height: 2.2em;
+  width: 2.2em;
+}
+
+.faded {
+  filter: brightness(40%);
 }
 
 .modal {
@@ -507,4 +530,32 @@ p {
 .flip-card-back {
   color: #d7d7d7;
   transform: rotateX(180deg);
+}
+.flip-card-info > * {
+  margin-bottom: 0.5em;
+}
+
+.alert-style {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1em;
+  padding: 3em;
+  padding-bottom: 6em;
+  text-align: center;
+}
+
+.swing-out {
+  animation: swing-out-animation 0.4s cubic-bezier(0.6, -0.28, 0.735, 0.045) both;
+}
+
+@keyframes swing-out-animation {
+  0% {
+    transform: rotateX(0deg);
+    transform-origin: top;
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(-100deg);
+    transform-origin: top;
+    opacity: 0;
+  }
 }

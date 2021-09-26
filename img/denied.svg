@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 329.328 329.328" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g>
-<path xmlns="http://www.w3.org/2000/svg" d="M164.666,0C73.871,0,0.004,73.871,0.004,164.672c0.009,90.792,73.876,164.656,164.662,164.656  c90.793,0,164.658-73.865,164.658-164.658C329.324,73.871,255.459,0,164.666,0z M164.666,30c31.734,0,60.933,11.042,83.975,29.477  L59.478,248.638c-18.431-23.04-29.471-52.237-29.474-83.967C30.004,90.413,90.413,30,164.666,30z M164.666,299.328  c-31.733,0-60.934-11.042-83.977-29.477L269.854,80.691c18.431,23.043,29.471,52.244,29.471,83.979  C299.324,238.921,238.917,299.328,164.666,299.328z" fill="#d7d7d7" data-original="#000000" style="" class=""/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 22.135 22.135" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g>
+<g xmlns="http://www.w3.org/2000/svg">
+	<g>
+		<path style="" d="M0,18.723L14.879,3.089c0,0,1.949-2.114,6.341-1.597c0,0,0.753,0.599,0.915,1.755L7.179,19.24    c0,0-1.236,1.558-6.461,1.438C0.717,20.678,0.2,20.438,0,18.723z" fill="#d7d7d7" data-original="#030104" class=""/>
+		<path style="" d="M0,3.412l14.879,15.634c0,0,1.949,2.114,6.341,1.597c0,0,0.753-0.598,0.915-1.758L7.179,2.891    c0,0-1.236-1.556-6.461-1.436C0.717,1.456,0.2,1.696,0,3.412z" fill="#d7d7d7" data-original="#030104" class=""/>
+	</g>
+</g>
 <g xmlns="http://www.w3.org/2000/svg">
 </g>
 <g xmlns="http://www.w3.org/2000/svg">
