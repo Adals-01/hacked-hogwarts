@@ -189,11 +189,11 @@ function displayStudent(student) {
   clone.querySelector("[data-field=nickname]").textContent = student.nickname;
   clone.querySelector("[data-field=house]").textContent = student.house;
   clone.querySelector("[data-field=image]").src = "student-img/" + student.image;
-  clone.querySelector(".prefect").src = "img/" + student.prefect;
+  clone.querySelector(".house-crest").src = "img/" + student.house + ".svg";
   clone.querySelector(".make-prefect").addEventListener("click", makePrefect(student));
   clone.querySelector(".make-expelled").addEventListener("click", makeExpelled(student));
   clone.querySelector(".make-squad").addEventListener("click", makeSquad(student));
-  clone.querySelector(".student-box").classList.add("house-" + student.house);
+  clone.querySelector(".crest-container").classList.add("house-" + student.house);
   clone.querySelector(".bloodstatus").textContent = "Bloodstatus: " + student.bloodstatus;
   if (student.expelled === true) {
     clone.querySelector(".make-expelled").classList.add("hide");
