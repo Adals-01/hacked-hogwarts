@@ -375,6 +375,7 @@ function hackTheSystem() {
       document.querySelector("#flicker-screen").addEventListener("animationend", resetHack);
       function resetHack() {
         document.querySelector(".big-logo").src = "img/hackedwarts.svg";
+        document.querySelector(".big-logo").classList.add("fade-in");
         this.classList.remove("flicker-in-1");
       }
     }
