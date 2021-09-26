@@ -211,14 +211,14 @@ const makeSquad = (student) => {
   };
 };
 
-//mess up
+//remove after timeout when hacked
 function limitedSquad(student) {
   console.log("limitedSquad");
   if (student.squad === true) {
     setTimeout(() => {
       student.squad = false;
       buildList();
-    }, 3000);
+    }, 10000);
   }
 }
 
@@ -332,8 +332,8 @@ function clickCard() {
 function registerButtons() {
   document.querySelectorAll(".icon").forEach((filter) => filter.addEventListener("click", selectFilter));
   console.log("registerButtons");
-  document.querySelectorAll(".sort").forEach((value) => value.addEventListener("change", selectSort));
-  document.querySelector(".sort-dir").addEventListener("click", setDirection);
+  document.querySelector(".sort").addEventListener("change", selectSort);
+  document.querySelector(".sort-dir").addEventListener("click", sortDirection);
   document.querySelector("input[name=checkbox]").addEventListener("change", hackTheSystem);
   document.querySelector("#search").addEventListener("input", searchStudent);
 }
@@ -451,13 +451,14 @@ function selectSort(event) {
   const sortBy = event.target.value;
   const sortDir = event.target.value.sortDirection;
 
-  if (sortDir === "asc") {
-    event.target.dataset.sortDirection = "desc";
-  } else {
-    event.target.dataset.sortDirection = "asc";
-  }
   console.log(`User selected ${sortBy}`);
-  buildList(sortBy, sortDir);
+  setSort(sortBy, sortDir);
+}
+
+function setSort(sortBy, sortDir) {
+  settings.sortBy = sortBy;
+  settings.sortDir = sortDir;
+  buildList();
 }
 
 function sortList(sortedList) {
@@ -477,16 +478,8 @@ function sortList(sortedList) {
   return sortedList;
 }
 
-/* function setSort(sortBy, sortDir) {
-  settings.sortBy = sortBy;
-  settings.sortDir = sortDir;
-  buildList();
-} */
-
-function setDirection(e) {
+function sortDirection(e) {
   console.log(this);
-  this.removeEventListener("click", setDirection);
-  settings.sortDir = e.target.dataset.sortDirection;
   //toggle direction
   console.log(settings.sortDir);
   if (settings.sortDir === "desc") {
@@ -501,7 +494,6 @@ function setDirection(e) {
   registerButtons();
   buildList();
 }
-
 function buildList() {
   const currentList = filterList(allStudents.filter((student) => student.expelled === false));
   const sortedList = sortList(currentList);

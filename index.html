@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
     <div class="start-screen">
         <img src="img/hogwarts-logo.svg" alt="hogwarts logo" id="big-logo">
         <h2>STUDENT LIST</h2>
@@ -21,7 +22,7 @@
             <input type="checkbox" name="checkbox" />
         </div>
         <div class="background-circles-container">
-            <div class="background-circles-1">
+            <!--       <div class="background-circles-1">
                 <div class="blurr circle1"></div>
                 <div class="blurr circle3"></div>
                 <div class="blurr circle5"></div>
@@ -35,7 +36,7 @@
                 <div class="blurr circle8"></div>
                 <div class="blurr circle10"></div>
                 <div class="blurr circle10"></div>
-            </div>
+            </div> -->
         </div>
     </div>
     <div id="popup"></div>
@@ -55,32 +56,48 @@
 
     <section>
         <div class="student-number"></div>
-        <div id="search">
-            <input type="text" id="site-search" placeholder="Find a student">
-        </div>
+        <div class="sort-search">
 
+            <div id="search">
+                <input type="text" id="site-search" placeholder="Search">
+            </div>
+        </div>
         <div class="filter-container">
 
-            <div class="filter-outline"></div>
-            <div class="filter-mask"></div>
+
+            <div class="sort">
+
+                <div><button class="sort-dir">⇅</button></div>
+                <select name="sort" id="sort">
+                    <option data-action="sort" data-sort-direction="asc" class="sort" value="firstname">First name
+                    </option>
+                    <option data-action="sort" data-sort-direction="asc" class="sort" value="lastname">Last name
+                    </option>
+                    <option data-action="sort" data-sort-direction="asc" class="sort" value="house">House</option>
+                    <option data-action="sort" data-sort-direction="asc" class="sort" value="prefect">Prefect</option>
+                </select>
+            </div>
+
 
 
             <div class="perfect">
-                <p class="filter-label">Prefect</p>
-                <div class="perfect-container">
-                    <img class="icon" data-action="filter" data-filter="prefect" src="img/ok.svg" alt="">
+                <div>
+                    <!--   <p class="filter-label">Prefect</p> -->
+                    <div class="perfect-container">
+                        <img class="icon" data-action="filter" data-filter="prefect" src="img/ok.svg" alt="">
+                    </div>
                 </div>
+                <div class="squad">
+                    <!--   <p class="filter-label">Squad</p> -->
+                    <div class="perfect-container">
+                        <img class="icon" data-action="filter" data-filter="squad" src="img/ok.svg" alt="">
+                    </div>
 
-            </div>
-            <div class="squad">
-                <p class="filter-label">Squad</p>
-                <div class="perfect-container">
-                    <img class="icon" data-action="filter" data-filter="squad" src="img/ok.svg" alt="">
                 </div>
-
             </div>
+
             <div class=house>
-                <p class="filter-label">House</p>
+                <!--  <p class="filter-label">House</p> -->
                 <div class="house-container">
                     <img class="icon lion" data-action="filter" data-filter="Gryffindor" src="img/lion.svg">
                     <img class="icon snake" data-action="filter" data-filter="Slytherin" src="img/snake.svg">
@@ -89,26 +106,13 @@
                 </div>
             </div>
             <div class="expelled">
-                <p class="filter-label">Expelled</p>
+                <!--  <p class="filter-label">Expelled</p> -->
                 <div class="expelled-container">
                     <img class="icon" data-action="filter" data-filter="expelled" src="img/denied.svg" alt="">
                 </div>
             </div>
         </div>
-        <div class="sort">
-            <label for="sort">Sort:</label>
 
-            <select name="sort" id="sort">
-                <option data-action="sort" data-sort-direction="asc" class="sort" value="firstname">First name</option>
-                <option data-action="sort" data-sort-direction="asc" class="sort" value="lastname">Last name</option>
-                <option data-action="sort" data-sort-direction="asc" class="sort" value="house">House</option>
-                <option data-action="sort" data-sort-direction="asc" class="sort" value="prefect">Prefect</option>
-
-                <option data-action="sort" data-sort-direction="asc" class="sort" value="squad">squad</option>
-
-            </select>
-        </div>
-        <div><button class="sort-dir">⇅</button></div>
     </section>
 
     <div id="list" class="flip-card">
