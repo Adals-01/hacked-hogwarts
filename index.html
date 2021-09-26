@@ -13,9 +13,9 @@
 </head>
 
 <body>
-
     <div class="start-screen">
-        <img src="img/hogwarts-logo.svg" alt="hogwarts logo" id="big-logo">
+
+        <img id="big-logo" class="big-logo" src="img/hogwarts-logo.svg" alt="hogwarts logo">
         <h2>STUDENT LIST</h2>
         <button id="btn-scroll" onclick="scrolldiv()"><img id="arrow-down" src=" img/arrow-down.svg"
                 alt="arrow to next section"></button>
@@ -40,6 +40,7 @@
             </div> -->
         </div>
     </div>
+    <div id="flicker-screen"></div>
     <!--  <div id="popup dialog" class="hide">
         <p>This student can't be expelled</p>
     </div> -->
@@ -55,10 +56,11 @@
             </div>
         </div>
     </div>
-
+    <div class="container diamond-shape">
+        <div class="student-number"></div>
+    </div>
 
     <section>
-        <div class="student-number"></div>
         <div class="sort-search">
 
             <div id="search">
@@ -80,6 +82,15 @@
                     <option data-action="sort" data-sort-direction="asc" class="sort" value="prefect">Prefect</option>
                 </select>
             </div>
+            <div class=house>
+                <!--  <p class="filter-label">House</p> -->
+                <div class="house-container">
+                    <img class="icon lion" data-action="filter" data-filter="Gryffindor" src="img/lion.svg">
+                    <img class="icon snake" data-action="filter" data-filter="Slytherin" src="img/snake.svg">
+                    <img class="icon badger" data-action="filter" data-filter="Hufflepuff" src="img/badger.svg">
+                    <img class="icon raven" data-action="filter" data-filter="Ravenclaw" src="img/raven.svg">
+                </div>
+            </div>
 
 
 
@@ -97,25 +108,15 @@
                     </div>
 
                 </div>
+                <div class="expelled">
+                    <!--  <p class="filter-label">Expelled</p> -->
+                    <div class="expelled-container">
+                        <img class="icon" data-action="filter" data-filter="expelled" src="img/denied.svg" alt="">
+                    </div>
+                </div>
             </div>
 
-            <div class=house>
-                <!--  <p class="filter-label">House</p> -->
-                <div class="house-container">
-                    <img class="icon lion" data-action="filter" data-filter="Gryffindor" src="img/lion.svg">
-                    <img class="icon snake" data-action="filter" data-filter="Slytherin" src="img/snake.svg">
-                    <img class="icon badger" data-action="filter" data-filter="Hufflepuff" src="img/badger.svg">
-                    <img class="icon raven" data-action="filter" data-filter="Ravenclaw" src="img/raven.svg">
-                </div>
-            </div>
-            <div class="expelled">
-                <!--  <p class="filter-label">Expelled</p> -->
-                <div class="expelled-container">
-                    <img class="icon" data-action="filter" data-filter="expelled" src="img/denied.svg" alt="">
-                </div>
-            </div>
         </div>
-
     </section>
 
     <div id="list" class="flip-card">
@@ -152,12 +153,7 @@
                     <p>House: <span data-field="house"></span></p>
                     <p class="prefect">Prefect:</p>
                     <p class="bloodstatus">Bloodstatus:
-                    <p>Expelled:
-                        <!--  <span data-field="house"></span> -->
-                    </p>
-                    <p>Inquisitorial:
-                        <!--  <span data-field="house"></span> -->
-                    </p>
+
                 </div>
             </div>
 

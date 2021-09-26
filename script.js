@@ -124,6 +124,10 @@ function getImage(student) {
     const noDash = lastnameLowcase.split("-").pop();
     const imageName = `${noDash}_${initialName}.png`;
     return imageName;
+  } else if (student.lastname === "Leanne") {
+    const imageName = "question.svg";
+    console.log(imageName);
+    return imageName;
   } else {
     const imageName = `${lastnameLowcase}_${initialName}.png`;
     return imageName;
@@ -366,6 +370,18 @@ function hackTheSystem() {
   if (this.checked) {
     isHacked = isHacked ? false : true;
     console.log("is hacked");
+    if (isHacked === true) {
+      document.querySelector("#flicker-screen").classList.add("flicker-in-1");
+      document.querySelector("#flicker-screen").addEventListener("animationend", resetHack);
+      function resetHack() {
+        document.querySelector(".big-logo").src = "img/hackedwarts.svg";
+        this.classList.remove("flicker-in-1");
+      }
+    }
+    if (isHacked === false) {
+      document.querySelector(".big-logo").src = "img/hogwarts-logo.svg";
+    }
+
     randomizeBlood();
     addMe();
     buildList();
@@ -522,6 +538,6 @@ function sortDirection(e) {
 function buildList() {
   const currentList = filterList(allStudents.filter((student) => student.expelled === false));
   const sortedList = sortList(currentList);
-  document.querySelector(".student-number").textContent = currentList.length;
+  document.querySelector(".student-number").textContent = sortedList.length;
   displayList(sortedList);
 }

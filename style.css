@@ -66,16 +66,7 @@ body {
   color: #d7d7d7;
 }
 
-.student-number {
-  font-size: 1.6em;
-  color: #d7d7d7;
-  text-align: center;
-  padding-bottom: 1em;
-  margin-bottom: 1em;
-}
-
 #site-search {
-  margin-bottom: 2em;
   text-align: center;
   border-radius: 2em;
   padding: 0.4em 0.8em 0.4em 0.8em;
@@ -237,19 +228,10 @@ section {
 
 .filter-container {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 2fr 3fr 2fr;
   margin-top: 1em;
   margin-bottom: 1em;
-
-  /*   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end; */
-  /*   box-shadow: 0.2rem 0.2rem 0.6rem rgb(46, 46, 46), -0.1rem -0.1rem 0.5rem rgb(51, 51, 51);
-  background-color: rgb(0, 0, 0);
-  padding: 1.5em;
-  border-radius: 2em; */
-  /*   margin: 1em; */
+  border: 1px white solid;
 }
 
 .filter-label {
@@ -259,11 +241,9 @@ section {
 
 .sort,
 .house,
-.perfect,
-.expelled {
+.perfect {
   text-align: center;
   padding: 2vw;
-  border: 1px white solid;
 }
 
 .perfect {
@@ -297,7 +277,221 @@ section {
   background-color: rgb(10, 10, 10);
 } */
 
+.flicker-in-1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  z-index: 99;
+  -webkit-animation: flicker-in-1 2s linear both;
+  animation: flicker-in-1 2s linear both;
+}
+@-webkit-keyframes flicker-in-1 {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  10.1% {
+    opacity: 1;
+  }
+  10.2% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  20.1% {
+    opacity: 1;
+  }
+  20.6% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  30.1% {
+    opacity: 1;
+  }
+  30.5% {
+    opacity: 1;
+  }
+  30.6% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  45.1% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 1;
+  }
+  55.1% {
+    opacity: 0;
+  }
+  57% {
+    opacity: 0;
+  }
+  57.1% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  60.1% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 0;
+  }
+  65.1% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  75.1% {
+    opacity: 0;
+  }
+  77% {
+    opacity: 0;
+  }
+  77.1% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  85.1% {
+    opacity: 0;
+  }
+  86% {
+    opacity: 0;
+  }
+  86.1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flicker-in-1 {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  10.1% {
+    opacity: 1;
+  }
+  10.2% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  20.1% {
+    opacity: 1;
+  }
+  20.6% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  30.1% {
+    opacity: 1;
+  }
+  30.5% {
+    opacity: 1;
+  }
+  30.6% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  45.1% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 1;
+  }
+  55.1% {
+    opacity: 0;
+  }
+  57% {
+    opacity: 0;
+  }
+  57.1% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  60.1% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 0;
+  }
+  65.1% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  75.1% {
+    opacity: 0;
+  }
+  77% {
+    opacity: 0;
+  }
+  77.1% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  85.1% {
+    opacity: 0;
+  }
+  86% {
+    opacity: 0;
+  }
+  86.1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 #big-logo {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 20%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  width: 45%;
+  z-index: 99;
+}
+
+.hacked-logo {
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -419,6 +613,31 @@ p {
   border-radius: 100%;
   filter: grayscale(0.7);
   background-image: url(https://grainy-gradients.vercel.app/noise.svg);
+}
+
+/* Student nr */
+
+.container {
+  margin: auto;
+  margin-top: 2em;
+  text-align: center;
+}
+
+.diamond-shape {
+  background: #fff;
+  height: 40px;
+  text-align: center;
+  transform: rotate(45deg);
+  width: 40px;
+}
+.student-number {
+  font-size: 1.6em;
+  color: black;
+  display: table-cell;
+  height: 40px;
+  transform: rotate(-45deg);
+  vertical-align: middle;
+  width: 40px;
 }
 
 /* Prefects popup warning */
