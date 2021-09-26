@@ -196,6 +196,16 @@ function displayStudent(student) {
     clone.querySelector(".make-prefect").classList.add("hide");
     clone.querySelector(".make-squad").classList.add("hide");
   }
+
+  if (student.prefect === true) {
+    clone.querySelector(".make-prefect").classList.remove("faded");
+  } else if (student.prefect === false) {
+    clone.querySelector(".make-prefect").classList.add("faded");
+  }
+  if (student.squad === true) {
+    clone.querySelector(".make-squad").classList.toggle("faded");
+  }
+
   if (student.nickname === null || student.nickname === "undefined" || student.nickname === "") {
     clone.querySelector(".nickname").classList.add("hide");
   }
@@ -206,24 +216,16 @@ function displayStudent(student) {
 // Make inquisitorial squad
 const makeSquad = (student) => {
   return () => {
-    if (student.squad === true) {
-      /*   clone.querySelector(".squad img").classList.remove("false"); */
-    } else if (student.squad === false) {
-      /*   clone.querySelector(".squad img").classList.add("false"); */
-    }
-    if (hackTheSystem) {
+    if (isHacked === true) {
       student.squad = true;
       limitedSquad(student);
-    } else if (student.house === "Slytherin" || student.blood === "Pure-blood") {
+    } else if (student.house === "Slytherin" || student.bloodstatus === "pure") {
       if (student.squad) {
         student.squad = false;
       } else {
         student.squad = true;
       }
-    } else {
-      canNotBeSquad(student);
     }
-    console.log(student.squad);
     buildList();
   };
 };
@@ -362,6 +364,7 @@ function scrolldiv() {
 
 function hackTheSystem() {
   if (this.checked) {
+    isHacked = isHacked ? false : true;
     console.log("is hacked");
     randomizeBlood();
     addMe();
@@ -430,19 +433,19 @@ function setFilter(filter) {
 
 function filterList(filteredList) {
   if (settings.filterBy === "Slytherin") {
-    filteredList = allStudents.filter(isSlytherin);
+    filteredList = filteredList.filter(isSlytherin);
   } else if (settings.filterBy === "Gryffindor") {
-    filteredList = allStudents.filter(isGryffindor);
+    filteredList = filteredList.filter(isGryffindor);
   } else if (settings.filterBy === "Hufflepuff") {
-    filteredList = allStudents.filter(isHufflepuff);
+    filteredList = filteredList.filter(isHufflepuff);
   } else if (settings.filterBy === "Ravenclaw") {
-    filteredList = allStudents.filter(isRavenclaw);
+    filteredList = filteredList.filter(isRavenclaw);
   } else if (settings.filterBy === "expelled") {
     filteredList = allStudents.filter(isExpelled);
   } else if (settings.filterBy === "prefect") {
-    filteredList = allStudents.filter(isPrefect);
+    filteredList = filteredList.filter(isPrefect);
   } else if (settings.filterBy === "squad") {
-    filteredList = allStudents.filter(isSquad);
+    filteredList = filteredList.filter(isSquad);
   }
   return filteredList;
 }
